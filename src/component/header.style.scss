@@ -1,0 +1,64 @@
+.header{
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    h1{
+        flex: 1;
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+    h1 strong{
+        color: rgb(46, 221, 15);
+    }
+    &-nav{
+        flex: 1;
+        display: flex;
+
+        li{
+            margin-right: 1rem;
+            text-transform: capitalize;
+            font-size:2rem;
+            font-weight: 300;
+            cursor: pointer;
+
+            &:hover{
+                color: rgb(102, 98, 98);
+            }
+        }
+    }
+    form{
+        flex: 1;
+
+    }
+
+    input{
+        outline: none;
+        border: none;
+        border-radius: .3rem;
+        padding: 1rem .5rem;
+        height: 4rem;
+        width: 70%;
+    }
+    input::placeholder{
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        color: #aca4a4;
+    }
+    button{
+        cursor: pointer;
+        background-color: rgb(77, 230, 16);
+        color: #ffffff;
+        font-size: 1.7rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        text-transform: capitalize;
+        padding: 1rem .5rem;
+        border: none;
+        margin-left: .5rem;
+    }
+
+}
