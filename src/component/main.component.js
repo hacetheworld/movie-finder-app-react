@@ -18,6 +18,66 @@ class Main extends Component {
     }
 
 
+    trending = () => {
+        fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=209e42e2c66ab2cba7c280981a877ace`).then(res => res.json())
+            .then(res => {
+
+
+                const searchResults = [];
+                let count = 0;
+                while (res.results[count] !== undefined && res.results[count] && count < 10) {
+
+                    if (res.results[count].vote_average > 6.5) {
+                        searchResults.push(res.results[count])
+                    }
+                    count++;
+                }
+                this.setState({ searchResults: searchResults, byDefault: false })
+
+            });
+
+    }
+
+    latest = () => {
+        fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=209e42e2c66ab2cba7c280981a877ace`).then(res => res.json())
+            .then(res => {
+
+
+                const searchResults = [];
+                let count = 0;
+                while (res.results[count] !== undefined && res.results[count] && count < 10) {
+
+                    if (res.results[count].vote_average > 3.5) {
+                        searchResults.push(res.results[count])
+                    }
+                    count++;
+                }
+                this.setState({ searchResults: searchResults, byDefault: false })
+
+            });
+
+    }
+
+
+    popularity = () => {
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=209e42e2c66ab2cba7c280981a877ace`).then(res => res.json())
+            .then(res => {
+
+
+                const searchResults = [];
+                let count = 0;
+                while (res.results[count] !== undefined && res.results[count] && count < 10) {
+
+                    if (res.results[count].vote_average > 6.5) {
+                        searchResults.push(res.results[count])
+                    }
+                    count++;
+                }
+                this.setState({ searchResults: searchResults, byDefault: false })
+
+            });
+
+    }
 
     fetchSearchData = (QUERY = 'Interstellar') => {
 
@@ -45,9 +105,9 @@ class Main extends Component {
 
         return (
             <>
-                <Header fetchSearchData={this.fetchSearchData} />
+                <Header latest={this.latest} fetchSearchData={this.fetchSearchData} />
                 <div className='main'>
-                    <Sidebar />
+                    <Sidebar trending={this.trending} popularity={this.popularity} latest={this.latest} />
                     <CardList data={this.state.searchResults} />
                 </div>
             </>

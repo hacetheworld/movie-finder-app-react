@@ -14,7 +14,9 @@ class Card extends Component {
                 </div>
                 <div className='movie-info'>
                     <h1 className='movie-title'>{data.title}</h1>
-                    <p className='movie-year'>Released Year : {data.release_date.split('-')[0]}</p>
+                    <p className='movie-year'>Released Year : {data.release_date ?
+                        data.release_date.split('-')[0] : 'no date'
+                    }</p>
                 </div>
             </div>
         )

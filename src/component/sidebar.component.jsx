@@ -5,6 +5,18 @@ import './sidebar.style.scss';
 
 class Sidebar extends Component {
 
+    handleTrending = () => {
+        this.props.trending();
+    }
+
+    handlePopularity = () => {
+        this.props.popularity();
+    }
+
+    handleLatest = () => {
+        this.props.latest();
+    }
+
     render() {
         return (
             <div className='sidebar'>
@@ -16,10 +28,10 @@ class Sidebar extends Component {
                     </div>
                 </div>
                 <ul className='sidebar-nav'>
-                    <li>Trending</li>
-                    <li>Top Hits</li>
-                    <li>New in {new Date().getFullYear()} </li>
-                    <li>Popular </li>
+                    <li onClick={this.handleTrending}>Trending</li>
+                    <li onClick={this.handleTrending}>Top Hits</li>
+                    <li onClick={this.handleLatest}>New in {new Date().getFullYear()} </li>
+                    <li onClick={this.handlePopularity}>Popular </li>
                 </ul>
 
                 <ul className='sidebar-social-nav'>

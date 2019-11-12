@@ -8,6 +8,10 @@ class Header extends Component {
         e.preventDefault();
     }
 
+    handleLatest = () => {
+        this.props.latest();
+    }
+
     render() {
         return (
 
@@ -19,10 +23,10 @@ class Header extends Component {
                 </form>
 
                 <ul className='header-nav'>
-                    <li>Trending</li>
-                    <li>Top Hits</li>
-                    <li>New in {new Date().getFullYear()} </li>
-                    <li>Popular </li>
+                    <li onClick={this.handleLatest}>Trending</li>
+                    <li onClick={this.handleLatest}>Top Hits</li>
+                    <li onClick={this.handleLatest}>New in {new Date().getFullYear()} </li>
+                    <li><a href='mailto:majay1638@gmail.com'>Contact me</a></li>
                 </ul>
 
             </header>
