@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import Card from './Card.component';
+import { Link } from 'react-router-dom';
 import './cardList.style.scss'
 class CardList extends Component {
 
 
     render() {
-        let data = this.props.data;
+        let Moviedata = this.props.data;
 
         return (
             <section className="movies">
-                {data.map(data => <Card key={data.id} data={data} />)}
+                {Moviedata.map(data => <Link key={data.id} to={`/movie/${data.id}`}><Card data={data} /></Link>)}
             </section>
         )
     }

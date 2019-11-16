@@ -9,7 +9,7 @@ class Card extends Component {
         return (
             <div key={data.id} className="movie">
                 <div className='movie-img'>
-                    <img className='poster' src={backdropIMG + data.backdrop_path} alt={data.title} className="poster" />
+                    <img className='poster' src={backdropIMG + data.backdrop_path} alt={data.title} />
                     <p className="star">{data.vote_average}</p>
                 </div>
                 <div className='movie-info'>

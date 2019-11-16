@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import './header.style.scss'
+import React, { Component } from 'react';
+import './header.style.scss';
+import { Link } from 'react-router-dom'
 class Header extends Component {
 
     handleChange = (e) => {
@@ -24,6 +25,7 @@ class Header extends Component {
 
                 <ul className='header-nav'>
                     <li onClick={this.handleLatest}>Trending</li>
+
                     <li onClick={this.handleLatest}>Top Hits</li>
                     <li onClick={this.handleLatest}>New in {new Date().getFullYear()} </li>
                     <li><a href='mailto:majay1638@gmail.com'>Contact me</a></li>
