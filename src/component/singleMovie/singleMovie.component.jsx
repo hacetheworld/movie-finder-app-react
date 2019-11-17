@@ -31,6 +31,8 @@ export default class SingleMovie extends Component {
 
     render() {
         let data = this.state.movie[0]
+        console.log(data);
+
         return (
 
             <div>

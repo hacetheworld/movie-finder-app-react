@@ -11,30 +11,46 @@ class Card extends Component {
         }
     }
 
-    getGeners(ids = [12, 18, 878]) {
-        fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=209e42e2c66ab2cba7c280981a877ace&language=en-US').then(data => data.json()).then(data => {
-            // console.log(data['genres'][id]);
+    getGeners(isids, gener = [12, 18, 878]) {
+        if (isids) {
+            fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=209e42e2c66ab2cba7c280981a877ace&language=en-US').then(data => data.json()).then(data => {
+                // console.log(data['genres'][id]);
+                let generData = [];
+                let i = 0;
+                data['genres'].map((data) => {
+                    if (data.id === gener[i]) {
+                        generData.push(data.name);
+                        i++;
+                    }
+                });
 
+                this.setState({ gener: generData });
+
+            }
+
+            )
+        } else {
             let generData = [];
-            let i = 0;
-            data['genres'].map((data) => {
-                if (data.id === ids[i]) {
-                    generData.push(data.name);
-                    i++;
 
-                }
+            gener.map((data) => {
+                generData.push(data.name);
+
             });
-
 
             this.setState({ gener: generData });
 
         }
-        )
+
     }
 
     componentDidMount() {
 
-        this.getGeners(this.props.data.genre_ids)
+        let isids;
+        if (this.props.data.genre_ids) {
+            this.getGeners(isids = true, this.props.data.genre_ids)
+        } else {
+            this.getGeners(isids = false, this.props.data.genres)
+        }
 
     }
 
