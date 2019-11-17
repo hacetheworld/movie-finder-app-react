@@ -39,7 +39,7 @@ export default class SingleMovie extends Component {
                 <div className='main'>
                     <Sidebar />
                     <div className="movies">
-                        {data ? <Card data={data} /> : `<h1>Fetching...</h1>`}
+                        {data ? <Card data={data} isSinglePage={true} /> : `<h1>Fetching...</h1>`}
 
                     </div>
 

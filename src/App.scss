@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
 
 *,
 *::before,
@@ -35,5 +36,5 @@ body {
 .main{
   width: 100%;
   display: flex;
-justify-content: center;
+justify-content: space-between;
 }
